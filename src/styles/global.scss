@@ -1,0 +1,135 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --white: 65, 32%, 92%;
+  --dark: 0, 0%, 12%;
+  --dark100: var(--dark) / 0.2;
+  --dark400: 153, 7%, 30%;
+  --green: 104, 60%,
+    32hsl (var(--green100)) var(--green) / 0hsl (var(--green400)) 130, 82%, 71%;
+  --orange: 18, 75%, 44%;
+
+  background: hsl(var(--white));
+  color: hsl(var(--dark400));
+  min-height: 100vh;
+
+  // &[dark-mode='true'] {
+  //   background: var(--black400);
+  //   color: hsl(var(--white));
+  // }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  &::focus-within,
+  &::focus,
+  &::focus-visible {
+    outline: hsl(var(--orange)) solid 3px;
+    outline-offset: 4px;
+  }
+}
+a:-webkit-any-link:focus-visible {
+  outline: hsl(var(--orange)) solid 3px;
+  outline-offset: 4px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn {
+  border: 2px solid;
+  border-color: hsl(var(--dark100));
+
+  width: clamp(180px, calc(180px + 4vw), 280px);
+  height: clamp(56px, calc(56px + 1.75vw), 80px);
+  font-size: clamp(1.2rem, calc(1.2rem + 1vw), 2.5rem);
+  padding: 0.1em 0.15em;
+
+  &:hover {
+    background: hsl(var(--white));
+    color: hsl(var(--green));
+    border-width: 4px;
+    border-color: hsl(var(--green));
+  }
+  &:focus-within {
+    background: hsl(var(--green100));
+    color: var(--black700);
+    border-color: hsl(var(--green400));
+  }
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-auto-rows: auto;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+  min-height: 80vh;
+  &* {
+    max-width: 50ch;
+  }
+}
+
+@media only screen and (min-width: 45rem) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns:
+      minmax(1rem, 1fr)
+      minmax(0, 40rem)
+      minmax(0, 40rem)
+      minmax(1rem, 1fr);
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
