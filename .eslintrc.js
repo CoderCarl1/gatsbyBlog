@@ -22,6 +22,7 @@ module.exports = {
   },
   rules: {
     'no-tabs': ['error', { allowIndentationTabs: true }],
+    allowAllPropertiesOnSameLine: true,
     'max-len': [
       'error',
       {
