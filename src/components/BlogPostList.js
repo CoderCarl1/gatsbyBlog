@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import '../styles/blogPostList.scss';
+import { dateProcessor } from '../utils/dateProcessor';
 
 export const BlogPostList = () => {
   const data = useStaticQuery(graphql`
@@ -12,6 +14,7 @@ export const BlogPostList = () => {
             description
             title
             date(fromNow: false)
+            tag
           }
         }
       }
@@ -21,17 +24,26 @@ export const BlogPostList = () => {
   const posts = data.allMdx.nodes;
 
   return (
-    <>
-      <h3>Latest Blog Posts</h3>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link to={`/${post.slug}`}>{post.frontmatter.title}</Link>
-            {' - '}
-            <small>posted {post.frontmatter.date}</small>
-          </li>
-        ))}
-      </ul>
-    </>
+    <footer className="footer">
+      <article className="latest-blogs">
+        <h3 className="footer__title">Latest Blog Posts</h3>
+        <ul className="latest-blogs__list">
+          {posts.map((post) => (
+            <li key={post.id}>
+              <Link
+                className="latest-blogs__list__item link-growing-border"
+                to={`/${post.slug}`}
+              >
+                {post.frontmatter.title}
+              </Link>
+              <span className="mob-hidden">
+                {' - '}
+                <small>posted {dateProcessor(post.frontmatter.date)}</small>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </footer>
   );
 };

@@ -1,0 +1,30 @@
+.footer {
+  background: hsl(var(--dark400));
+  color: hsl(var(--white));
+  &__title {
+    font-size: var(--fs-600);
+    padding: 0.75rem;
+  }
+  .latest-blogs {
+    &__list {
+      list-style: none;
+      padding-bottom: 0.75rem;
+      padding-inline: 0.5rem;
+      @media only screen and (min-width: 35em) {
+        padding-inline: 0.75rem;
+      }
+      & li + li {
+        margin-top: 0.75em;
+      }
+    }
+  }
+}
+
+@keyframes border-bottom-grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
