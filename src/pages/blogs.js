@@ -27,35 +27,22 @@ export default function blogs(props) {
         <pre>
           {Object.keys(posts)
             .sort()
-            .map(
-              (subject) => {
-                console.log('this is the subject', subject);
-                return (
-                  <section className="blogs__topic">
-                    <h2 className="blogs__topic__title text-center uppercase">
-                      {subject}
-                    </h2>
-                    <div className="blog-link__page__list">
-                      {posts[subject].map((post) => (
-                        <BlogLink href={`/${post.slug}`}>
-                          {post.frontmatter.title}
-                        </BlogLink>
-                      ))}
-                    </div>
-                  </section>
-                );
-
-                // posts[key].map((subject) => {});
-              },
-              //     return {subject.map(section =>(
-              //
-              //         {section.tag}
-              //       </h2>
-              //
-              //     </section>)
-
-              //       )}
-            )}
+            .map((subject) => {
+              return (
+                <section className="blogs__topic">
+                  <h2 className="blogs__topic__title text-center uppercase">
+                    {subject}
+                  </h2>
+                  <div className="blog-link__page__list">
+                    {posts[subject].map((post) => (
+                      <BlogLink href={`/${post.slug}`}>
+                        {post.frontmatter.title}
+                      </BlogLink>
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
         </pre>
       </article>
     </Layout>
