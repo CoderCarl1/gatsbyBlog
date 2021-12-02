@@ -1,27 +1,43 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Layout, Image } from '../components';
+import { Layout, Image, ImageHeader } from '../components';
 
 export const query = graphql`
   query CarlImageQuery {
-    file(name: { eq: "carl_pic" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: DOMINANT_COLOR, height: 150)
+    allImageSharp {
+      edges {
+        node {
+          gatsbyImageData
+          fluid {
+            originalName
+          }
+        }
       }
     }
   }
 `;
 
 export default function IndexPage({ data }) {
+  const carlImage = data.allImageSharp.edges.filter(
+    (image) => image.node.fluid.originalName === 'carl_pic.jpg',
+  )[0].node.gatsbyImageData;
+  const bannerImage = data.allImageSharp.edges.filter(
+    (image) => image.node.fluid.originalName === 'doSomethingGreat.jpg',
+  )[0].node.gatsbyImageData;
   return (
     <Layout>
       <article>
+        <ImageHeader headerImageSrc={bannerImage} />
         <h1 className="page-title text-center uppercase">Welcome!</h1>
         <div className="grid-container">
           <section className="written-content">
             <p>
-              <Image ImageSrc={data.file} className="text-w-image-aside-r" />I
-              am a junior fullstack developer who has spent the last 2 years
+              <Image
+                ImageSrc={carlImage}
+                className="text-w-image-aside-r"
+                height={150}
+              />
+              I am a junior fullstack developer who has spent the last 2 years
               finding his feet amidst a career change, moving states, and COVID
               (Blergh!).
             </p>
@@ -41,18 +57,31 @@ export default function IndexPage({ data }) {
               </ul>
             </p>
             <p>
-              Reach out if you want to discuss anything more 👋{' '}
+              Reach out if you want to discuss anything more
+              <br />
+              phone:{' '}
               <a className="link-growing-border" href="tel:0431631749">
                 0431 631 749
               </a>{' '}
-              👈 or email:{' '}
+              📲
+              <br />
+              email:{' '}
               <a
                 className="link-growing-border"
                 href="mailto:carl.davidson@hotmail.com"
               >
                 carl.davidson@hotmail.com
+              </a>{' '}
+              📧
+              <br />
+              Linkedin:{' '}
+              <a
+                className="link-growing-border"
+                href="https://www.linkedin.com/in/carl-davidson/"
+                target="_blank"
+              >
+                https://www.linkedin.com/in/carl-davidson/
               </a>
-              👈
             </p>
           </section>
 

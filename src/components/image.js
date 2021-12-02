@@ -5,17 +5,16 @@ export const Image = ({
   ImageSrc = '../images/carl_pic.jpg',
   className,
   alt,
-  width = 300,
-  height = 300,
+  width,
+  height,
 }) => {
   return (
-    <GatsbyImage
-      image={getImage(ImageSrc)}
-      alt={alt}
+    <div
       className={`${className} image`}
-      height={height}
-      width={width}
-    />
+      style={{ height: height, width: width }}
+    >
+      <GatsbyImage image={getImage(ImageSrc)} alt={`${alt}`} />
+    </div>
   );
 };
 

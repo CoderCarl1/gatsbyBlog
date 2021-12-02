@@ -400,8 +400,12 @@ a {
 }
 
 .image {
-  aspect-ratio: 1;
   border-radius: 15%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  img {
+    height: 100%;
+  }
 }
 
 .text-w-image-aside-l {
