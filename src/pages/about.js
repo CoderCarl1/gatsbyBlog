@@ -54,44 +54,47 @@ export default function AboutPage({ data }) {
               This is a site is created with{' '}
               <ul className="styled-list">
                 <li>
-                  <span>Framework - </span>
+                  <span className="main-point">Framework - </span>
                   <a
                     href="https://www.gatsbyjs.com/docs/"
                     className="external-link link-growing-border"
                     target="_blank"
                   >
-                    Gatsby
+                    <span className="italic">Gatsby</span>
                   </a>
                 </li>
                 <li>
-                  <span>Library - </span>
+                  <span className="main-point">Library - </span>
                   <a
                     href="https://reactjs.org/"
                     className="external-link link-growing-border"
                     target="_blank"
                   >
-                    React
+                    <span className="italic">React</span>
                   </a>
                 </li>
                 <li>
-                  <span>Blogging Resources - </span>
-                  MDX plugins through Gatsby magic.
+                  <span className="main-point">Blogging Resources - </span>
+                  <span className="italic">
+                    MDX plugins through Gatsby magic.
+                  </span>
                 </li>
                 <li>
-                  <span>Styling - </span> SCSS
+                  <span className="main-point">Styling - </span>{' '}
+                  <span className="italic">SCSS</span>
                 </li>
                 <li>
-                  <span>Initial Designs - </span>{' '}
+                  <span className="main-point">Initial Designs - </span>{' '}
                   <a
                     href="https://www.figma.com/"
                     className="external-link link-growing-border"
                     target="_blank"
                   >
-                    Figma
+                    <span className="italic"> Figma </span>
                   </a>
                 </li>
                 <li>
-                  <span className="">Accessibility</span> in mind.
+                  <span className="main-point">Accessibility in mind.</span>
                   <aside className="aside-resources">
                     <small>More info on various A11y topics at:</small>
                     <ul className="styled-list">

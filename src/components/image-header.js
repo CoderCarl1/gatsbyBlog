@@ -21,7 +21,6 @@ export const ImageHeader = ({ headerImageSrc, headerClassName, headerAlt }) => {
       style={{
         // backgroundImage: getImage(headerImageSrc),
         width: imageWidth,
-        height: 300,
       }}
     >
       <GatsbyImage

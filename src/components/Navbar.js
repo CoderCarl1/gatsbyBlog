@@ -12,7 +12,7 @@ export const Navbar = (props) => {
   const location = useLocation();
 
   const handleMenu = () => {
-    if (width <= 768) {
+    if (width <= 720) {
       setMenuState(!menuState);
     }
   };
@@ -22,7 +22,7 @@ export const Navbar = (props) => {
   }, [location]);
 
   useEffect(() => {
-    if (width > 768 && menuState === true) {
+    if (width > 720 && menuState === true) {
       setMenuState(false);
     }
   }, [width]);
@@ -30,12 +30,14 @@ export const Navbar = (props) => {
   return (
     <header className="header container">
       <div className="mob-wrapper">
-        <Link to="/">
-          <div className={menuState ? 'fade-in logo' : 'logo '}>
-            <span className="sr-only">Home</span>
-          </div>
-        </Link>
-        {width < 768 && (
+        {menuState && (
+          <Link to="/">
+            <div className={menuState ? 'fade-in logo' : 'logo '}>
+              <span className="sr-only">Home</span>
+            </div>
+          </Link>
+        )}
+        {width < 720 && (
           <button
             className="nav--hamburger"
             onClick={handleMenu}
@@ -47,7 +49,7 @@ export const Navbar = (props) => {
         )}
       </div>
       <nav
-        className={menuState ? 'open nav' : width <= 768 ? 'closed nav' : 'nav'}
+        className={menuState ? 'open nav' : width <= 720 ? 'closed nav' : 'nav'}
       >
         <ul id="primary-navigation" className="nav--list">
           <li

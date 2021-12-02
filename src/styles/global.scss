@@ -150,6 +150,10 @@ a {
   width: 100%;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -184,6 +188,9 @@ a {
   text-transform: uppercase;
 }
 
+.italic {
+  font-style: italic;
+}
 .font-light {
   font-weight: 400;
 }
@@ -277,7 +284,7 @@ a {
       bottom: -0.2em;
       animation: border-bottom-grow 0.35s ease-in forwards;
       border-bottom: 2px solid;
-      border-color: inherit;
+      border-color: hsl(var(--light));
     }
   }
 }
@@ -294,18 +301,46 @@ a {
 
 .styled-list {
   padding: 1em;
-  list-style: none;
   li + li {
     margin-top: 0.5em;
   }
+  .main-point {
+    font-weight: 800;
+    font-size: var(--fs-400);
+  }
   li {
+    list-style: none;
     position: relative;
-    span {
-      font-weight: bold;
-    }
   }
   a {
     color: hsl(var(--dark-blue));
+  }
+}
+.tech-stack {
+  .title {
+    text-transform: uppercase;
+    display: inline-block;
+    // text-align: center;
+    margin-bottom: 1em;
+  }
+  &__section:is(li) + li {
+    margin-top: 2.5rem;
+  }
+  &__columns {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      flex: 1 45%;
+      margin: 0;
+    }
+    li + li {
+      margin-top: 0.25rem;
+    }
+  }
+  &.aside-resources {
+    @media only screen and (min-width: 45em) {
+      margin: 0;
+    }
   }
 }
 
@@ -346,6 +381,12 @@ a {
   }
 }
 
+.written-content {
+  line-height: 1.5rem;
+  p + p {
+    margin-top: 2rem;
+  }
+}
 /**
   IMAGE COMPONENTS
 */
@@ -361,4 +402,13 @@ a {
 .image {
   aspect-ratio: 1;
   border-radius: 15%;
+}
+
+.text-w-image-aside-l {
+  float: left;
+  margin: 0 1rem 1rem 0;
+}
+.text-w-image-aside-r {
+  float: right;
+  margin: 0 0 1rem 1rem;
 }
