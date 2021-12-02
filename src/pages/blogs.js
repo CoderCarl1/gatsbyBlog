@@ -23,27 +23,24 @@ export default function blogs(props) {
     <Layout title="My Blogs" description="A list and Links to each of my blogs">
       <article className="blog-link__page">
         <h1 className="page-title text-center uppercase">Blogs / Articles</h1>
-
-        <pre>
-          {Object.keys(posts)
-            .sort()
-            .map((subject) => {
-              return (
-                <section className="blogs__topic">
-                  <h2 className="blogs__topic__title text-center uppercase">
-                    {subject}
-                  </h2>
-                  <div className="blog-link__page__list">
-                    {posts[subject].map((post) => (
-                      <BlogLink href={`/${post.slug}`}>
-                        {post.frontmatter.title}
-                      </BlogLink>
-                    ))}
-                  </div>
-                </section>
-              );
-            })}
-        </pre>
+        {Object.keys(posts)
+          .sort()
+          .map((subject) => {
+            return (
+              <section className="blogs__topic">
+                <h2 className="blogs__topic__title text-center uppercase">
+                  {subject}
+                </h2>
+                <div className="blog-link__page__list">
+                  {posts[subject].map((post) => (
+                    <BlogLink href={`/${post.slug}`}>
+                      {post.frontmatter.title}
+                    </BlogLink>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
       </article>
     </Layout>
   );

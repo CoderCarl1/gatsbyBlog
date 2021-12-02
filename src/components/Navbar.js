@@ -52,7 +52,9 @@ export const Navbar = (props) => {
         <ul id="primary-navigation" className="nav--list">
           <li
             className={
-              active === '/' ? 'active nav--list__item' : 'nav--list__item'
+              active === '/'
+                ? 'active nav--list__item link-nav'
+                : 'nav--list__item link-nav'
             }
           >
             <Link to="/" className="nav--list__item__link">
@@ -61,7 +63,9 @@ export const Navbar = (props) => {
           </li>
           <li
             className={
-              active === '/about' ? 'active nav--list__item' : 'nav--list__item'
+              active === '/about'
+                ? 'active nav--list__item link-nav'
+                : 'nav--list__item link-nav'
             }
           >
             <Link to="/about" className="nav--list__item__link">
@@ -70,7 +74,9 @@ export const Navbar = (props) => {
           </li>
           <li
             className={
-              active === '/blogs' ? 'active nav--list__item' : 'nav--list__item'
+              active === '/blogs'
+                ? 'active nav--list__item link-nav'
+                : 'nav--list__item link-nav'
             }
           >
             <Link to="/blogs" className="nav--list__item__link">

@@ -1,10 +1,21 @@
 import * as React from 'react';
-const { useEffect } = React;
+// const { useEffect } = React;
+import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Layout } from '../components';
+import { Layout, Image } from '../components';
 // import '../styles/global.css';
 
-export default function IndexPage({ location }) {
+export const query = graphql`
+  query CarlImageQuery {
+    file(name: { eq: "carl_pic" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: DOMINANT_COLOR)
+      }
+    }
+  }
+`;
+
+export default function IndexPage({ data }) {
   // useEffect(() => {
   // setActive(props.location.pathname);
   // }, [location]);
@@ -12,9 +23,11 @@ export default function IndexPage({ location }) {
   // }, []);
   return (
     <Layout>
-      <h1 className="page-title text-center uppercase">
-        This is the IndexPage
-      </h1>
+      <div className="body-bground-wrapper">
+        <h1 className="page-title uppercase"></h1>
+      </div>
+      <article></article>
+      <Image ImageSrc={data.file} />
     </Layout>
   );
 }

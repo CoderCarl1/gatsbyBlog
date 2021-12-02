@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import ICON from '../images/Logo80.png';
 
 export function Seo(props) {
   const data = useStaticQuery(graphql`
@@ -40,6 +41,14 @@ export function Seo(props) {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {image && <meta name="twitter:image" content={image} />}
+
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+        rel="stylesheet"
+      />
+      <link rel="icon" href={ICON}></link>
     </Helmet>
   );
 }

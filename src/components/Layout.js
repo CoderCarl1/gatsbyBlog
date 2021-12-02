@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Seo, Navbar, BlogPostList } from './';
+import { Seo, Navbar, Footer } from './';
 
 import '../styles/global.scss';
 
@@ -17,7 +17,7 @@ export const Layout = ({
       <div className="page-container">
         <Navbar />
         <main>{children}</main>
-        <BlogPostList />
+        <Footer />
       </div>
     </>
   );
