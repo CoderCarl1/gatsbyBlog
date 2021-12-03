@@ -70,7 +70,7 @@
     }
     @media only screen and (max-width: 767px) {
       &.closed {
-        position: absolute;
+        position: fixed;
         z-index: 2;
         inset: 0;
         background: white;
@@ -113,6 +113,9 @@
       }
     }
     &--hamburger {
+      @media only screen and (min-width: 45em) {
+        display: none;
+      }
       display: block;
       position: absolute;
       top: 2rem;

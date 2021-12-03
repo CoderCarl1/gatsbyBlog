@@ -37,16 +37,15 @@ export const Navbar = (props) => {
             </div>
           </Link>
         )}
-        {width < 720 && (
-          <button
-            className="nav--hamburger"
-            onClick={handleMenu}
-            aria-controls="primary-navigation"
-            aria-expanded={menuState ? 'true' : 'false'}
-          >
-            <span className="sr-only">Menu</span>
-          </button>
-        )}
+
+        <button
+          className="nav--hamburger"
+          onClick={handleMenu}
+          aria-controls="primary-navigation"
+          aria-expanded={menuState ? 'true' : 'false'}
+        >
+          <span className="sr-only">Menu</span>
+        </button>
       </div>
       <nav
         className={menuState ? 'open nav' : width <= 720 ? 'closed nav' : 'nav'}

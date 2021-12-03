@@ -21,7 +21,6 @@ export default function AboutPage({ data }) {
       description="more information about this site"
     >
       <article>
-        {/* <GatsbyImage image={getImage(data.file)} alt="" /> */}
         <ImageHeader headerImageSrc={data.file} />
 
         <h1 className="page-title text-center uppercase">What this Site is</h1>
@@ -50,8 +49,8 @@ export default function AboutPage({ data }) {
             <h2 className="page-subtitle uppercase font-light">
               Tech used in making this site
             </h2>
-            <p>
-              This is a site is created with{' '}
+            <div>
+              <p>This is a site is created with</p>
               <ul className="styled-list">
                 <li>
                   <span className="main-point">Framework - </span>
@@ -120,7 +119,7 @@ export default function AboutPage({ data }) {
                 github Repo
               </a>
               .
-            </p>
+            </div>
           </section>
         </div>
       </article>

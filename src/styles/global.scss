@@ -7,12 +7,12 @@ body {
   // color: hsl(0, 0%, 97%);
   --light: 231 77% 90%;
   --blue: 234, 62%, 47%;
-  --dark-blue: 234, 90%, 66%;
+  --dark-blue: 234, 100%, 90%;
   // color: hsl(234, 90%, 66%);
   --dark: 0, 0%, 12%;
   --dark100: var(--dark), 0.2;
   --dark400: 153, 7%, 30%;
-  color: rgb(71, 82, 77);
+  // color: rgb(71, 82, 77);
   --green: 104, 60%, 30;
   --green100: var(--green), 0.2;
   --green400: 104, 55%, 39%;
@@ -96,16 +96,18 @@ a {
 .page-container {
   margin-inline: auto;
   max-width: 100rem;
+  width: 100%;
   min-height: 100vh;
-  min-width: 300px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   color: hsl(var(--white));
-  background: hsl(var(--dark400));
-  background-image: url('./main_bground.jpg');
-  background-position: top left;
-  background-repeat: no-repeat;
+  background-color: hsl(var(--dark400));
+  background: url(./main_bground.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -198,6 +200,12 @@ a {
   font-weight: bold;
 }
 
+.mt-8 {
+  margin-top: 0.5em;
+}
+.mb-8 {
+  margin-bottom: 0.5em;
+}
 .fade-in {
   animation: fade-in 1s ease-in forwards;
 }

@@ -22,7 +22,12 @@ export default function blogs(props) {
   return (
     <Layout title="My Blogs" description="A list and Links to each of my blogs">
       <article className="blog-link__page">
+        <p className="page-title text-center uppercase">WORK IN PROGRESS </p>
         <h1 className="page-title text-center uppercase">Blogs / Articles</h1>
+        <p>
+          This is a placeholder page while I write up some blogs properly and
+          was a way to test the MDX processing{' '}
+        </p>
         {Object.keys(posts)
           .sort()
           .map((subject) => {

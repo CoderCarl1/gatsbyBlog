@@ -21,13 +21,13 @@ export default function IndexPage({ data }) {
   const carlImage = data.allImageSharp.edges.filter(
     (image) => image.node.fluid.originalName === 'carl_pic.jpg',
   )[0].node.gatsbyImageData;
-  const bannerImage = data.allImageSharp.edges.filter(
-    (image) => image.node.fluid.originalName === 'doSomethingGreat.jpg',
-  )[0].node.gatsbyImageData;
+  // const bannerImage = data.allImageSharp.edges.filter(
+  //   (image) => image.node.fluid.originalName === 'doSomethingGreat.jpg',
+  // )[0].node.gatsbyImageData;
   return (
     <Layout>
       <article>
-        <ImageHeader headerImageSrc={bannerImage} />
+        {/* <ImageHeader headerImageSrc={bannerImage} /> */}
         <h1 className="page-title text-center uppercase">Welcome!</h1>
         <div className="grid-container">
           <section className="written-content">
@@ -59,29 +59,31 @@ export default function IndexPage({ data }) {
             <p>
               Reach out if you want to discuss anything more
               <br />
-              phone:{' '}
-              <a className="link-growing-border" href="tel:0431631749">
-                0431 631 749
-              </a>{' '}
-              📲
-              <br />
-              email:{' '}
-              <a
-                className="link-growing-border"
-                href="mailto:carl.davidson@hotmail.com"
-              >
-                carl.davidson@hotmail.com
-              </a>{' '}
-              📧
-              <br />
-              Linkedin:{' '}
-              <a
-                className="link-growing-border"
-                href="https://www.linkedin.com/in/carl-davidson/"
-                target="_blank"
-              >
-                https://www.linkedin.com/in/carl-davidson/
-              </a>
+              <div className="mt-8 mb-8">
+                <span className="font-heavy">phone:</span>{' '}
+                <a className="link-growing-border" href="tel:0431631749">
+                  0431 631 749
+                </a>{' '}
+                📲
+                <br />
+                <span className="font-heavy">email:</span>{' '}
+                <a
+                  className="link-growing-border"
+                  href="mailto:carl.davidson@hotmail.com"
+                >
+                  carl.davidson@hotmail.com
+                </a>{' '}
+                📧
+                <br />
+                <span className="font-heavy">Linkedin:</span>{' '}
+                <a
+                  className="link-growing-border"
+                  href="https://www.linkedin.com/in/carl-davidson/"
+                  target="_blank"
+                >
+                  https://www.linkedin.com/in/carl-davidson/
+                </a>
+              </div>
             </p>
           </section>
 
