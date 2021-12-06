@@ -5,7 +5,7 @@
   margin-bottom: 1.5rem;
   margin-inline: 2rem;
   --bottom-gap: -1em;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 44.999em) {
     justify-content: space-between;
     .mob-wrapper {
       display: flex;
@@ -17,8 +17,7 @@
   }
 
   .logo {
-    // padding: 1.5em;
-    width: 5rem;
+    width: 4.5rem;
     aspect-ratio: 1;
     background: transparent;
     background-repeat: no-repeat;
@@ -35,7 +34,7 @@
   .nav {
     display: flex;
     opacity: 0;
-    transition: transform 0.35s ease-in-out, opacity 0.5s ease-in;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in;
 
     @media screen and (min-width: 45em) {
       opacity: 1;
@@ -48,7 +47,7 @@
       }
     }
     &.open {
-      position: absolute;
+      position: fixed;
       z-index: 2;
       inset: 0;
       background: hsl(var(--dark400));
@@ -57,27 +56,22 @@
       flex-direction: column;
       transform: translateX(0px);
       opacity: 1;
-      // @supports (backdrop-filter: blur(2rem)) {
-      //   background: hsl(var(--white) / 0.05);
-      //   backdrop-filter: blur(2rem);
-      //   -webkit-backdrop-filter: blur(2rem);
-      // }
 
       & .nav--list {
         flex-direction: column;
         justify-content: space-evenly;
       }
     }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 44.999em) {
       &.closed {
         position: fixed;
         z-index: 2;
         inset: 0;
-        background: white;
+        background: hsl(var(--dark400));
         height: 100%;
         width: 100vw;
         flex-direction: column;
-        transform: translateX(2000px);
+        transform: translateX(100%);
         opacity: 0;
       }
     }
@@ -97,7 +91,6 @@
       @media only screen and (min-width: 45em) {
         &__item + .nav--list__item {
           margin-left: 5rem;
-          // padding-bottom: 5em;
         }
       }
       &__item__link {
@@ -108,23 +101,24 @@
       }
       & .active {
         &:after {
+          border-bottom: 3px solid;
           border-color: hsl(var(--light));
         }
       }
     }
     &--hamburger {
-      @media only screen and (min-width: 45em) {
-        display: none;
-      }
       display: block;
       position: absolute;
       top: 2rem;
       right: 2rem;
       background: transparent;
+      background-size: cover;
       background-repeat: no-repeat;
-      width: 2rem;
+      width: 1.75rem;
+      border: 1px solid red;
       aspect-ratio: 1;
       border: none;
+      cursor: pointer;
       @media only screen and (min-width: 45em) {
         display: none;
       }

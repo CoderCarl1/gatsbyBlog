@@ -275,7 +275,7 @@ a {
   &:focus-within,
   &:focus {
     &:after {
-      border-bottom: 3px solid hsl(var(--light), 40%);
+      border-color: 3px solid hsl(var(--light), 40%);
     }
   }
 }
@@ -328,7 +328,6 @@ a {
   .title {
     text-transform: uppercase;
     display: inline-block;
-    // text-align: center;
     margin-bottom: 1em;
   }
   &__section:is(li) + li {

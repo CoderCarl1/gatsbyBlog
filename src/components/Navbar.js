@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import '../styles/nav.scss';
 import { useWindowDimensions } from '../utils/useWindowDimensions';
 
-export const Navbar = (props) => {
+export const Navbar = () => {
   const [menuState, setMenuState] = useState(false);
   const { width } = useWindowDimensions();
   const [active, setActive] = useState('/');
@@ -17,6 +17,12 @@ export const Navbar = (props) => {
     }
   };
 
+  const handleNavClick = (route) => {
+    if (route === active) {
+      setMenuState(false);
+      console.log('it happened');
+    }
+  };
   useEffect(() => {
     setActive(location.pathname);
   }, [location]);
@@ -58,7 +64,11 @@ export const Navbar = (props) => {
                 : 'nav--list__item link-nav'
             }
           >
-            <Link to="/" className="nav--list__item__link">
+            <Link
+              to="/"
+              onClick={() => handleNavClick('/')}
+              className="nav--list__item__link"
+            >
               Home
             </Link>
           </li>
@@ -69,7 +79,11 @@ export const Navbar = (props) => {
                 : 'nav--list__item link-nav'
             }
           >
-            <Link to="/about" className="nav--list__item__link">
+            <Link
+              to="/about"
+              onClick={() => handleNavClick('/about')}
+              className="nav--list__item__link"
+            >
               About
             </Link>
           </li>
@@ -80,7 +94,11 @@ export const Navbar = (props) => {
                 : 'nav--list__item link-nav'
             }
           >
-            <Link to="/blogs" className="nav--list__item__link">
+            <Link
+              to="/blogs"
+              onClick={() => handleNavClick('/blogs')}
+              className="nav--list__item__link"
+            >
               Blogs
             </Link>
           </li>
