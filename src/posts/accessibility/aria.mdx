@@ -1,14 +1,114 @@
 ---
-date: 2021-11-29
+date: 2021-12-16
 title: Aria and how to get started
 description: Aria is a large topic but is incredibly important to use correctly.
 tag: a11y / accessibility
 ---
 
+<div class="blog-post-layout">
+  
+  <div class="hero-heading">
+    <h1>Aria and how to get started</h1>
 
-# Aria and how to get started
+    <p>
+      Aria is a large topic and it can be overwhelming to get started, this
+      post will cover:
+    </p>
 
-Aria is a large topic but is incredibly important to use correctly
+    <nav id="secondary-navigation">
+      <ul class="styled-list">
+        <li>
+          <a href="#getting-started">how to get started</a>
+        </li>
+        <li>
+          <a href="">when to use them</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <article>
+    <h2 id="getting-started">Getting Started</h2>
+    <section>
+      <h3>When should you use aria?</h3>
+      <p>
+        A great starting point for expanding your accessibility skills is
+        to learn when and how to use aria.
+      </p>
+      <p>
+        Usually all of the problems are caused by us the developer, these
+        may include:
+      </p>
+      <ul class="styled-list">
+        <li class="dot-points">Accessibility</li>
+        <li class="dot-points">
+          Responsiveness at different screen sizes
+        </li>
+        <li class="dot-points">
+          Sites that can't be used without Javascript
+        </li>
+      </ul>
+      <p>
+        All of the HTML elements that are available to a developer come
+        with specific roles and other features baked into them. A div
+        element does not naturally come with an onClick, and it wouldn't
+        normally be focusable.
+      </p>
+      <p>
+        Through the use of Javascript we tend to 'fix' these problems
+        because we can and move on.
+      </p>
+    </section>
+    <section>
+      <h3 class="text-center">General Rules</h3>
+ 
+      <h4 class="numbered-title">
+        <span role="presentation">1</span> Complexity can be confusing
+      </h4>
+ 
+      <p>
+        When / if you write <span>complex logic with Javascript</span>,
+        hide things with CSS, add extra abilities to HTML elements (i.e.
+        add focusability to a div) it will probably be appropriate to add
+        an aria-role to clarify the intent of the component.
+      </p>
+ 
+      <p>
+        ARIA, by design, has no effect on how elements are displayed or
+        behave in browsers. It does not add new functionality and is meant
+        to act only as an extra descriptive layer for screen readers
+      </p>
+ 
+      <h4 class="numbered-title">
+        <span role="presentation">2</span> Semantic / Correct HTML conveys how to use the website properly.
+      </h4>
+      <p>
+        A website without any CSS or javascript is probably going to be
+        99% responsive, and if we made sure to only use Semantic markup it
+        would probably be Accessible to 99.99% of people.
+      </p>
+ 
+      <ul class="styled-list">
+        <li class="dot-points">
+          Appropriate Heading elements (h1, h2, h3 etc.)
+        </li>
+        <li class="dot-points">
+          Landmarks to identify where things are (heading, main, footer)
+        </li>
+        <li class="dot-points">
+          topics / subjects that are self contained and wrapped with-in an
+          article, with a heading, and separated into sections.
+        </li>
+      </ul>
+ 
+      <h4 class="numbered-title">
+        <span role="presentation">3</span> Complexity can be confusing
+      </h4>
+ 
+      <h4 class="numbered-title">
+        <span role="presentation">4</span> Complexity can be confusing
+      </h4>
+    </section>
 
-![image](../../images/carl_pic.jpg)
+  </article>
 
+</div>

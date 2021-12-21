@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Layout, Image, ImageHeader } from '../components';
+import { Layout, Image, ImageHeader, CtaLink } from '../components';
 
 export const query = graphql`
   query CarlImageQuery {
@@ -17,7 +17,8 @@ export const query = graphql`
   }
 `;
 
-export default function IndexPage({ data }) {
+export default function IndexPage(props) {
+  const { data } = props;
   const carlImage = data.allImageSharp.edges.filter(
     (image) => image.node.fluid.originalName === 'carl_pic.jpg',
   )[0].node.gatsbyImageData;
@@ -26,8 +27,10 @@ export default function IndexPage({ data }) {
   // )[0].node.gatsbyImageData;
   return (
     <Layout>
+      {console.log('props in Index file', props)}
       <article>
         {/* <ImageHeader headerImageSrc={bannerImage} /> */}
+        <CtaLink />
         <h1 className="page-title text-center uppercase">Welcome!</h1>
         <div className="grid-container">
           <section className="written-content">

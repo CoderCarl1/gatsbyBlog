@@ -10,7 +10,10 @@ export const LayoutPosts = ({ children, pageContext }) => {
   return (
     <Layout title={title} description={description}>
       <MDXProvider components={shortcodes}>{children}</MDXProvider>
-      <Link to="/blogs"> &larr; Back to All Blogs</Link>
+      <Link to="/blogs" style={{ padding: '0 2em' }}>
+        {' '}
+        &larr; All Blogs
+      </Link>
     </Layout>
   );
 };

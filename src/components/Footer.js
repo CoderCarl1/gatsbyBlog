@@ -33,7 +33,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="content-wrapper">
         <article className="latest-blogs">
-          <h3 className="footer__title">Latest Blog Posts</h3>
+          <h2 className="footer__title">Latest Blog Posts</h2>
           <ul className="latest-blogs__list">
             {posts.map((post) => (
               <li key={post.id}>

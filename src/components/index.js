@@ -6,3 +6,4 @@ export { Seo } from './Seo';
 export { BlogLink } from './BlogLink';
 export { ImageHeader } from './image-header';
 export { Image } from './image';
+export { CtaLink } from './ctaLink';

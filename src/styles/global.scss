@@ -8,7 +8,8 @@ body {
   --light: 231 77% 90%;
   --blue: 234, 62%, 47%;
   --dark-blue: 234, 100%, 90%;
-  // color: hsl(234, 90%, 66%);
+  --light-blue: 199, 92%, 91%;
+  // color: hsl(199, 92%, 75%);
   --dark: 0, 0%, 12%;
   --dark100: var(--dark), 0.2;
   --dark400: 153, 7%, 30%;
@@ -93,6 +94,23 @@ a {
   color: hsl(var(--white));
 }
 
+.blog-post-layout {
+  position: relative;
+  padding: 0.5em;
+  max-width: calc(80ch + 2em);
+  @media only screen and (min-width: 35em) {
+    padding: 2em;
+  }
+}
+.blog-post-aside {
+  @media only screen and (min-width: 45em) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    min-height: 100vh;
+    width: 100%;
+  }
+}
 .page-container {
   margin-inline: auto;
   max-width: 100rem;
@@ -190,6 +208,11 @@ a {
   text-transform: uppercase;
 }
 
+.text-spaced {
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
+}
+
 .italic {
   font-style: italic;
 }
@@ -218,28 +241,74 @@ a {
   }
 }
 
+p + p {
+  margin-top: 1.5em;
+}
 /**
- Components
+ COMPONENTS
 **/
-.external-link {
-  @media only screen and (min-width: 45em) {
-    position: relative;
-    margin-right: 20px;
-    &:after {
-      content: '';
-      position: absolute;
-      right: -20px;
-      top: 4px;
-      background-image: url('../images/external-link.svg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 16px;
-      aspect-ratio: 1;
-      pointer-events: none;
+
+.tech-stack {
+  .title {
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+  &__section:is(li) + li {
+    margin-top: 2.5rem;
+  }
+  &__columns {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      flex: 1 45%;
+      margin: 0;
+    }
+    li + li {
+      margin-top: 0.25rem;
+    }
+  }
+  &.aside-resources {
+    @media only screen and (min-width: 45em) {
+      margin: 0;
     }
   }
 }
 
+.numbered-title {
+  margin: 1em 0;
+  font-size: var(--fs-500);
+  span {
+    display: none;
+    @media only screen and (min-width: 35em) {
+      display: inline-block;
+      box-sizing: content-box;
+      background: hsl(var(--dark400));
+      color: hsl(var(--white));
+      line-height: 0.5;
+      padding: 1rem;
+      border-radius: 50%;
+    }
+  }
+}
+
+/**
+  TITLES
+**/
+
+.page-title {
+  font-size: var(--fs-700);
+  margin: 0.5em 0;
+}
+
+.page-subtitle {
+  font-size: var(--fs-600);
+  margin-bottom: 0.5em;
+}
+
+/**
+  BUTTONS
+**/
 .btn {
   border: 2px solid;
   border-color: hsl(var(--dark100));
@@ -257,6 +326,27 @@ a {
     color: hsl(var(--blue));
     border-width: 4px;
     border-color: hsl(var(--blue));
+  }
+}
+/**
+  LINKS
+**/
+.external-link {
+  @media only screen and (min-width: 45em) {
+    position: relative;
+    margin-right: 20px;
+    &:after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 4px;
+      background-image: url('../images/external-link.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 16px;
+      aspect-ratio: 1;
+      pointer-events: none;
+    }
   }
 }
 
@@ -297,16 +387,6 @@ a {
   }
 }
 
-.page-title {
-  font-size: var(--fs-700);
-  margin: 0.5em 0;
-}
-
-.page-subtitle {
-  font-size: var(--fs-600);
-  margin-bottom: 0.5em;
-}
-
 .styled-list {
   padding: 1em;
   li + li {
@@ -324,51 +404,21 @@ a {
     color: hsl(var(--dark-blue));
   }
 }
-.tech-stack {
-  .title {
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 1em;
-  }
-  &__section:is(li) + li {
-    margin-top: 2.5rem;
-  }
-  &__columns {
-    display: flex;
-    flex-wrap: wrap;
-    li {
-      flex: 1 45%;
-      margin: 0;
-    }
-    li + li {
-      margin-top: 0.25rem;
-    }
-  }
-  &.aside-resources {
-    @media only screen and (min-width: 45em) {
-      margin: 0;
-    }
-  }
-}
 
 .dot-points {
   &:before {
     content: '';
     position: absolute;
     left: -0.75rem;
-    top: 50%;
+    top: 1ch;
     width: 4px;
-    background: hsl(var(--blue));
-    border: 1px solid hsl(var(--blue));
+    background: hsl(var(--light-blue));
     border-radius: 50%;
     aspect-ratio: 1;
   }
   &:hover {
     &:before {
       transform: scale(2);
-      border-color: hsl(var(--white));
-
-      // transition: transform 0.35s ease-in-out;
       background: hsl(var(--dark-blue));
     }
   }
@@ -383,7 +433,7 @@ a {
     font-size: inherit;
     color: hsl(var(--dark-blue));
     &:hover {
-      color: hsl(var(--blue));
+      color: hsl(var(--light-blue));
     }
   }
 }
