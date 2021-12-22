@@ -30,7 +30,7 @@ export default function IndexPage(props) {
       {console.log('props in Index file', props)}
       <article>
         {/* <ImageHeader headerImageSrc={bannerImage} /> */}
-        <CtaLink />
+        {/* <CtaLink /> */}
         <h1 className="page-title text-center uppercase">Welcome!</h1>
         <div className="grid-container">
           <section className="written-content">
